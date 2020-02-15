@@ -1,0 +1,10 @@
+﻿<Application
+    x:Class="NBAPlays.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewModels="using:NBAPlays.Shared.ViewModels"
+    xmlns:local="using:NBAPlays">
+    <Application.Resources>
+        <viewModels:ViewModelLocator x:Key="ViewModelLocator" />
+    </Application.Resources>
+</Application>

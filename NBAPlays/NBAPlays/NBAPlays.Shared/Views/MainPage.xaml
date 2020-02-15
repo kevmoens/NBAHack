@@ -1,0 +1,55 @@
+﻿<Page
+    x:Class="NBAPlays.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NBAPlays"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=Main}"
+    mc:Ignorable="d">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <RelativePanel>
+            <Button Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Command="{Binding HamburgerCommand}"/>
+        </RelativePanel>
+        <Grid Grid.Row="1">
+            <ContentControl Content="{Binding DisplayContent}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+        </Grid>
+        <SplitView IsPaneOpen="{Binding IsHamburgerMenuOpen}"
+               DisplayMode="CompactOverlay"
+               OpenPaneLength="296"
+               CompactPaneLength="35"
+               HorizontalAlignment="Left"
+               Grid.Row="1">
+            <SplitView.Pane>
+                <StackPanel HorizontalAlignment="Stretch">
+                    <Button Width="296" Background="{ThemeResource SystemAltHighColor}" Command="{Binding HomeCommand}" HorizontalContentAlignment="Left" >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE10F;"/>
+                            <TextBlock FontFamily="Arial" Text="HOME" Margin="10 0 0 0"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Width="296" Background="{ThemeResource SystemAltHighColor}" Command="{Binding SettingsCommand}" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE115;"/>
+                            <TextBlock FontFamily="Arial" Text="SETTINGS" Margin="10 0 0 0"/>
+                        </StackPanel>                        
+                    </Button>
+                </StackPanel>
+            </SplitView.Pane>
+
+            <!--<Grid>
+                <TextBlock Text="Content"
+                   FontSize="24"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"/>
+            </Grid>-->
+        </SplitView>
+    </Grid>
+</Page>
